@@ -1,0 +1,2 @@
+insert into `tb_emp` (`id`, `name`, `gender`, `department`, `dob`) values('3','John','Male','React','1998-04-02');
+insert into `tb_emp` (`id`, `name`, `gender`, `department`, `dob`) values('4','Mariah','Female','Java','2000-06-15');

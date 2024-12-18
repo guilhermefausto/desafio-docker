@@ -1,0 +1,1 @@
+Exemplo de docker compose com aplicação backend, frontend e acesso a banco de dados
