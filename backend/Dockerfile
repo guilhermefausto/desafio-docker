@@ -1,18 +1,16 @@
-FROM maven:eclipse-temurin AS build
-
-WORKDIR /app
-
-COPY pom.xml .
-
-COPY src ./src
-
-RUN mvn clean package -DskipTests
-
-FROM eclipse-temurin:17.0.13_11-jre-noble
+FROM eclipse-temurin:17.0.13_11-jdk-alpine
 
 WORKDIR /service
 
-COPY --from=build /app/target/*.jar ./app.jar
+COPY pom.xml mvnw ./
+
+COPY src ./src
+
+COPY .mvn ./.mvn
+
+RUN ./mvnw package -DskipTests
+
+RUN mv ./target/*.jar ./app.jar
 
 EXPOSE 8080
 
