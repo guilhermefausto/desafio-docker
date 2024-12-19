@@ -8,6 +8,8 @@ COPY src ./src
 
 COPY .mvn ./.mvn
 
+RUN chmod +x ./mvnw
+
 RUN ./mvnw package -DskipTests
 
 RUN mv ./target/*.jar ./app.jar
